@@ -1,6 +1,25 @@
 {
-    "manifest_version": 3,
-    "name": "Eos-Hermes",
-    "version": "1.0.0",
-    "action": { "default_popup": "index.html" }
-  }
+  "manifest_version": 3,
+  "name": "Eos-Hermes",
+  "version": "1.0.0",
+  "background": {
+    "service_worker": "background/background.ts",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "assets/wing.png",
+      "48": "assets/wing.png",
+      "128": "assets/wing.png"
+    }
+  },
+  "permissions": ["tabs", "activeTab", "scripting"],
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["content/contentScript.js"],
+      "run_at": "document_end"
+    }
+  ]
+}

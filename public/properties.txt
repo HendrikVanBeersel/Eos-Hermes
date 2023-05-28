@@ -1,3 +1,0 @@
-#here is the file to change some options If you want more optios just ask
-timeToCheck=5
-email=hendrikvanbeersel@hotmail.com
