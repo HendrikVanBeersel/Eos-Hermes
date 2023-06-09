@@ -3,16 +3,17 @@
   "name": "Eos-Hermes",
   "version": "1.0.0",
   "background": {
-    "service_worker": "background/background.ts",
+    "service_worker": "background/background.js",
     "type": "module"
   },
   "action": {
-    "default_popup": "index.html",
+    "default_popup": "popup/popup.vue",
     "default_icon": {
       "16": "assets/wing.png",
       "48": "assets/wing.png",
       "128": "assets/wing.png"
-    }
+    },
+    "type": "module"
   },
   "permissions": ["tabs", "activeTab", "scripting"],
   "content_scripts": [
