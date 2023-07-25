@@ -7,7 +7,7 @@
     "type": "module"
   },
   "action": {
-    "default_popup": "popup/popup.vue",
+    "default_popup": "popup/popup.html",
     "default_icon": {
       "16": "assets/wing.png",
       "48": "assets/wing.png",
