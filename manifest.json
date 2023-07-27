@@ -1,10 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Eos-Hermes",
+  "name": "Eos",
   "version": "1.0.0",
+  "host_permissions": ["https://crm.cactusglobal.com/*"],
+
   "background": {
-    "service_worker": "background/background.js",
-    "type": "module"
+    "service_worker": "background/background.js"
   },
   "action": {
     "default_popup": "popup/popup.html",
@@ -12,15 +13,13 @@
       "16": "assets/wing.png",
       "48": "assets/wing.png",
       "128": "assets/wing.png"
-    },
-    "type": "module"
+    }
   },
-  "permissions": ["tabs", "activeTab", "scripting"],
+  "permissions": ["tabs", "storage", "notifications"],
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
-      "js": ["content/contentScript.js"],
-      "run_at": "document_end"
+      "matches": ["https://crm.cactusglobal.com/*"],
+      "js": ["content/contentScript.js"]
     }
   ]
 }

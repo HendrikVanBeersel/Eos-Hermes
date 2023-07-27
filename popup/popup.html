@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eos</title>
+    <link rel="stylesheet" href="../assets/tailwind.css" />
+    <script src="popup.js" defer></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Chrome Extension</title>
-  <link rel="stylesheet" href="../assets/tailwind.css">
-  <script src="popup.js" defer></script>
-</head>
-
-<body>
-<div id="app">
-  <h1 class="text-2xl font-bold mb-4">Welcome to My Chrome Extension!</h1>
-  <button id="button">click me</button>
-</div>
-</body>
-
+  <body>
+    <div id="app">
+      <h1 class="text-2xl font-bold mb-4">Welcome Margarida!</h1>
+      <h2 class="text-xl font-bold mb-4" id="status"></h2>
+      <form>
+        <label for="intervalTime">time between Refreshes(+5sec)</label>
+        <input type="text" name="intervalTime" id="intervalTime" />
+      </form>
+      <button id="startButton">start</button>
+      <button id="stopButton">stop</button>
+    </div>
+  </body>
 </html>
