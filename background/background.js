@@ -26,13 +26,18 @@ async function start(intervalTime) {
     var response = await chrome.tabs.sendMessage(functionTab.id, {
       command: "check",
     });
-    total = response.total;
-    diff = total - prevTotal;
-    console.log("total: " + total);
-    if (diff > 0) {
-      sendNotification("New Jobs", "there is/are " + diff + " new job(s)");
+    if (response.total < 0) {
+      sendNotification("Error", "cactus CRM is down or loaded slowley");
+      return;
+    } else {
+      total = response.total;
+      diff = total - prevTotal;
+      if (diff > 0) {
+        sendNotification("New Jobs", "there is/are " + diff + " new job(s)");
+      }
+      prevTotal = total;
+      await new Promise((resolve) => setTimeout(resolve, intervalTime * 1000));
     }
-    await new Promise((resolve) => setTimeout(resolve, intervalTime * 1000));
   }
 }
 
