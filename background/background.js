@@ -1,15 +1,20 @@
 let total = 0;
 let prevTotal = 0;
 let functionIsRunning = false;
+let alwaysNotify = false;
 
 chrome.runtime.onMessage.addListener((obj, sender, response) => {
   switch (obj.command) {
     case "start":
+      if (obj.alwaysNotify) {
+        alwaysNotify = true;
+      }
       start(obj.intervalTime);
       response({ msg: "started" });
       break;
     case "stop":
       functionIsRunning = false;
+      let alwaysNotify = false;
       response({ msg: "stopped" });
       break;
     default:
@@ -29,7 +34,7 @@ async function start(intervalTime) {
     total = response.total;
     diff = total - prevTotal;
     console.log("total: " + total);
-    if (diff > 0) {
+    if (diff > 0 || alwaysNotify) {
       sendNotification("New Jobs", "there is/are " + diff + " new job(s)");
     }
     await new Promise((resolve) => setTimeout(resolve, intervalTime * 1000));

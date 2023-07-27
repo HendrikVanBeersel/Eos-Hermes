@@ -15,7 +15,7 @@
       "128": "assets/wing.png"
     }
   },
-  "permissions": ["tabs", "storage", "notifications"],
+  "permissions": ["tabs", "notifications"],
   "content_scripts": [
     {
       "matches": ["https://crm.cactusglobal.com/*"],
